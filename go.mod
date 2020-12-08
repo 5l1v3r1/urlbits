@@ -1,0 +1,8 @@
+module github.com/drsigned/urlbits
+
+go 1.15
+
+require (
+	github.com/drsigned/gos v1.1.0
+	github.com/logrusorgru/aurora/v3 v3.0.0
+)
