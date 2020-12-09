@@ -2,7 +2,7 @@
 
 ![made with go](https://img.shields.io/badge/made%20with-Go-0040ff.svg) ![maintenance](https://img.shields.io/badge/maintained%3F-yes-0040ff.svg) [![open issues](https://img.shields.io/github/issues-raw/drsigned/urlbits.svg?style=flat&color=0040ff)](https://github.com/drsigned/urlbits/issues?q=is:issue+is:open) [![closed issues](https://img.shields.io/github/issues-closed-raw/drsigned/urlbits.svg?style=flat&color=0040ff)](https://github.com/drsigned/urlbits/issues?q=is:issue+is:closed) [![license](https://img.shields.io/badge/License-MIT-gray.svg?colorB=0040FF)](https://github.com/drsigned/urlbits/blob/master/LICENSE) [![twitter](https://img.shields.io/badge/twitter-@drsigned-0040ff.svg)](https://twitter.com/drsigned)
 
-urlbits is a simple tool to pull out bits from URLS provided on stdin - **Inspired by tomnomnom's [unfurl](https://github.com/tomnomnom/unfurl)**.
+urlbits is a tool to pull out bits from URLS provided on stdin.
 
 ## Resources
 
@@ -17,7 +17,7 @@ urlbits is a simple tool to pull out bits from URLS provided on stdin - **Inspir
 
 #### From Binary
 
-You can download the pre-built binary for your platform from this repository's [Releases](https://github.com/drsigned/urlbits/releases/) page, extract, then move it to your `$PATH`and you're ready to go.
+You can download the pre-built binary for your platform from this repository's [releases](https://github.com/drsigned/urlbits/releases/) page, extract, then move it to your `$PATH`and you're ready to go.
 
 #### From Source
 
@@ -50,7 +50,7 @@ You can extract:
 * Hostnames from the URLs with the `hostnames` mode:
 
     ```
-    $ cat urls.txt | urlbits domains
+    $ cat urls.txt | urlbits hostnames
 
     sub.example.com
     sub.example.com
@@ -137,14 +137,20 @@ $ urlbits -h
 help message:
 
 ```text
-Usage:
+            _ _     _ _
+ _   _ _ __| | |__ (_) |_ ___
+| | | | '__| | '_ \| | __/ __|
+| |_| | |  | | |_) | | |_\__ \
+ \__,_|_|  |_|_.__/|_|\__|___/ v1.0.0
+
+USAGE:
   urlbits [OPTIONS] [MODE] [FORMATSTRING]
 
-Options:
-  -u, --unique      only output unique values
-  -v, --verbose     verbose mode: output URL parse errors
+GENERAL OPTIONS:
+  -u                output unique values
+  -v                verbose mode: output URL parse errors
 
-Modes:
+MODE OPTIONS:
   keys              keys from the query string (one per line)
   values            values from the query string (one per line)
   keypairs          `key=value` pairs from the query string (one per line)
@@ -152,10 +158,10 @@ Modes:
   paths             the request path (e.g. /users)
   format            specify a custom format (see below)
 
-Format Directives:
+FORMAT DIRECTIVES:
   %%                a literal percent character
   %s                the request scheme (e.g. https)
-  %u                tThe user info (e.g. user:pass)
+  %u                the user info (e.g. user:pass)
   %h                the hostname (e.g. sub.example.com)
   %S                the subdomain (e.g. sub)
   %r                the root of domain (e.g. example)
@@ -170,11 +176,14 @@ Format Directives:
   %#                inserts a hash if a fragment exists
   %a                authority (alias for %u%@%d%:%P)
 
-Examples:
+EXAMPLES:
   cat urls.txt | urlbits keys
-  cat urls.txt | urlbits format %s://%d%p?%q
+  cat urls.txt | urlbits format %s://%h%p?%q
 ```
 
+## Credits
+
+All credits to [Tom Hudson](https://github.com/tomnomnom), i took the initial code from his [unfurl](https://github.com/tomnomnom/unfurl).
 ## Contibution
 
 [Issues](https://github.com/drsigned/urlbits/issues) and [Pull Requests](https://github.com/drsigned/urlbits/pulls) are welcome! 

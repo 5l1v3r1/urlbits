@@ -36,9 +36,7 @@ func banner() {
 
 func init() {
 	flag.BoolVar(&co.unique, "u", false, "")
-	flag.BoolVar(&co.unique, "unique", false, "")
 	flag.BoolVar(&co.verbose, "v", false, "")
-	flag.BoolVar(&co.verbose, "verbose", false, "")
 
 	flag.Usage = func() {
 		banner()
@@ -61,7 +59,7 @@ func init() {
 		h += "FORMAT DIRECTIVES:\n"
 		h += "  %%                a literal percent character\n"
 		h += "  %s                the request scheme (e.g. https)\n"
-		h += "  %u                tThe user info (e.g. user:pass)\n"
+		h += "  %u                the user info (e.g. user:pass)\n"
 		h += "  %h                the hostname (e.g. sub.example.com)\n"
 		h += "  %S                the subdomain (e.g. sub)\n"
 		h += "  %r                the root of domain (e.g. example)\n"
