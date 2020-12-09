@@ -11,6 +11,7 @@ urlbits is a tool to pull out bits from URLS provided on stdin.
     * [From source](#from-source)
     * [From github](#from-github)
 * [Usage](#usage)
+* [Credits](#credits)
 * [Contribution](#contribution)
 
 ## Installation
